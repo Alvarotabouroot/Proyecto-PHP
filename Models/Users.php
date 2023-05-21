@@ -18,61 +18,33 @@ class Users extends BaseDatos{
         parent::__construct();
     }
 
-    public function getId():string{
-        return $this->id;
-    }
+    public function getId():string{return $this->id;}
 
-    public function setId($id){
-        $this->id = $id;
-    }
+    public function setId($id){$this->id = $id;}
 
-    public function getNombre():string{
-        return $this->nombre;
-    }
+    public function getNombre():string{return $this->nombre;}
 
-    public function setNombre(string $nombre){
-        $this->nombre = $nombre;
-    }
+    public function setNombre(string $nombre){$this->nombre = $nombre;}
 
-    public function getEmail():string{
-        return $this->email;
-    }
+    public function getEmail():string{return $this->email;}
 
-    public function setEmail(string $email){
-        $this->email = $email;
-    }
+    public function setEmail(string $email){$this->email = $email;}
 
-    public function getPassword():string{
-        return $this->password;
-    }
+    public function getPassword():string{return $this->password;}
 
-    public function setPassword(string $password){
-        $this->password = $password;
-    }
+    public function setPassword(string $password){$this->password = $password;}
 
-    public function getRol():string{
-        return $this->rol;
-    }
+    public function getRol():string{return $this->rol;}
 
-    public function setRol(string $rol){
-        $this->rol = $rol;
-    }
+    public function setRol(string $rol){$this->rol = $rol;}
 
-    public function getToken():string{
-        return $this->token;
-    }
+    public function getToken():string{return $this->token;}
 
-    public function setToken(string $token){
-        $this->token = $token;
-    }
+    public function setToken(string $token){$this->token = $token;}
 
-    public function getToken_esp():int{
-        return $this->token_esp;
-    }
+    public function getToken_esp():int{return $this->token_esp;}
 
-    public function setToken_esp(int $token_esp){
-        $this->token_esp = $token_esp;
-    }
+    public function setToken_esp(int $token_esp){$this->token_esp = $token_esp;}
 
     public function registro(){ 
         $stmt = $this->prepara("INSERT INTO users( nombre,email,rol,password) VALUES( :nombre, :email, :rol, :password);");

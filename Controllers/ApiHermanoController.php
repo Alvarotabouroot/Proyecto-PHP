@@ -17,6 +17,9 @@ class ApiHermanoController{
         $this->hermano = new Hermano();
     }
 
+    /*---------------------------- FUNCIONES BASICAS DE LA API DEL HERMANO ------------------------------- */
+
+    
     public function registrar($data): void{
         $data = json_decode($data);
         $this->hermano->setNombre($data->nombre);
@@ -73,6 +76,9 @@ class ApiHermanoController{
             }
         }
     }
+
+    /*------------------------- FUNCIONES DE LA API DEL HERMANO RESPECTO AL HERMANO ---------------------- */
+
 
     public function buscarTodosHermanos(){
         $hermanos = $this->hermano->buscarTodosHermanos();
