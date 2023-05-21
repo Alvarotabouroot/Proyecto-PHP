@@ -23,17 +23,19 @@ class UsersController{
     }
 
 
-    public function login(){
+    public function login(){ //Login de administradores
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['data'])){
                 $data = $_POST['data'];
                 $data = json_encode($data);
-                $logueado = $this->apiUsers->login($data);
+                $logueado = $this->apiUsers->login($data); //Devuelve true si se hace el login
+                //Estructura de control para el login
                 if($logueado){
-                    $this->home2();
+                    $this->home2(); //Carga la vista de las opciones del administrador
                 }else{
-                    $this->pages->render('users/login');
+                    $this->pages->render('users/login'); //Sino se hace el login te vuelve a pedir el login
                 }
+                //------------------------------------------------------------------------------
                 
             }
         }else{
