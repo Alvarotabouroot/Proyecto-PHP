@@ -20,6 +20,7 @@ class HermanoController{
         $this->pages = new Pages();
     }
 
+    /*------------------------------------- FUNCIONES BASICAS HERMANO ------------------------------------- */
     public function login(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['data'])){
@@ -56,39 +57,8 @@ class HermanoController{
         }
     }
 
+    /* -------------------------- FUNCIONES REFERENTES A LOS DATOS DEL HERMANO --------------------------*/
 
-    public function cambiarPassword($id){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if(isset($_POST['contraseña'])){
-                //Este fragmento de codigo realiza la funcion de cambiar la contraseña que se ha obtenido por el formulario, ademas le pasa el id del hermano para poder cambiarsela a el.
-                $id = json_encode($id);
-                $contraseña = $_POST['contraseña'];
-                $contraseña = json_encode($contraseña);
-                if($contraseña != ''){
-                    $cambioOK = $this->apiHermano->cambiarPassword($id, $contraseña);
-                }
-                
-                //--------------------------------------------------------------------------------------------
-
-                //Este fragmento de codigo se produce cuando se ha podido cambiar la contraseña y por tanto cargamos los datos del hermano y se los mandamos a la vista del perfil
-                if($cambioOK){
-                    $id = json_decode($id);
-                    $hermano = $this->apiHermano->buscarHermanoID($id);
-                    $hermano = json_decode($hermano);
-                    $this->pages->render('hermano/perfil', ['hermano'=>$hermano]);
-                //--------------------------------------------------------------------------------------------
-                //Este fragmento de codigo se produce cuando no se ha podido cambiar la contraseña y por tanto nos devuelve al formulario de cambiar la contraseña
-                }else{
-                    $this->pages->render('hermano/cambiarPassword', ['id'=>$id]);
-                }
-                //---------------------------------------------------------------------------------------------
-            }
-        //Este fragmento de codigo se produce cuando el metodo es GET y por tanto nos envia al formulario de cambiar la contraseña
-        }else{
-            $this->pages->render('hermano/cambiarPassword', ['id'=>$id]);
-        }
-        //-----------------------------------------------------------------------------------------------------
-    }
 
     public function editarDatos($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -126,7 +96,43 @@ class HermanoController{
         //----------------------------------------------------------------------------------------------------
     }
 
+    public function cambiarPassword($id){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['contraseña'])){
+                //Este fragmento de codigo realiza la funcion de cambiar la contraseña que se ha obtenido por el formulario, ademas le pasa el id del hermano para poder cambiarsela a el.
+                $id = json_encode($id);
+                $contraseña = $_POST['contraseña'];
+                $contraseña = json_encode($contraseña);
+                if($contraseña != ''){
+                    $cambioOK = $this->apiHermano->cambiarPassword($id, $contraseña);
+                }
+                
+                //--------------------------------------------------------------------------------------------
 
+                //Este fragmento de codigo se produce cuando se ha podido cambiar la contraseña y por tanto cargamos los datos del hermano y se los mandamos a la vista del perfil
+                if($cambioOK){
+                    $id = json_decode($id);
+                    $hermano = $this->apiHermano->buscarHermanoID($id);
+                    $hermano = json_decode($hermano);
+                    $this->pages->render('hermano/perfil', ['hermano'=>$hermano]);
+                //--------------------------------------------------------------------------------------------
+                //Este fragmento de codigo se produce cuando no se ha podido cambiar la contraseña y por tanto nos devuelve al formulario de cambiar la contraseña
+                }else{
+                    $this->pages->render('hermano/cambiarPassword', ['id'=>$id]);
+                }
+                //---------------------------------------------------------------------------------------------
+            }
+        //Este fragmento de codigo se produce cuando el metodo es GET y por tanto nos envia al formulario de cambiar la contraseña
+        }else{
+            $this->pages->render('hermano/cambiarPassword', ['id'=>$id]);
+        }
+        //-----------------------------------------------------------------------------------------------------
+    }
+
+
+    /*------------------------------- FUNCIONES DEL HERMANO CON LOS EVENTOS ----------------------------------*/
+
+    
     public function mostrarEventos(){
         //Este codigo se encarga de obtener todos los eventos disponibles y pasarselos a la vista para mostrarlos
         $eventos = $this->apiEvento->mostrarEventos();
