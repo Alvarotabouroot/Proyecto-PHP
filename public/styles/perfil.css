@@ -1,0 +1,142 @@
+body{
+    background:rgb(37, 82, 37);
+    background-image: url("../../src/fondo.svg");
+}
+
+.cabecera{
+    width: 600px;
+}
+
+.cabecera img{
+    margin-left: 500px;
+}
+
+.menu{
+    width: 600px;
+    background-color: rgb(9, 20, 9);
+    position: relative;
+    left: 450px;
+}
+
+.menu ul{
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    justify-content: center;
+    
+}
+
+.menu li{
+    list-style: none;
+    color: white;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+.info{
+    width: 600px;
+    position: relative;
+    left: 430px;
+    background-color: wheat;
+    padding: 15px;
+    text-align: center;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    left: 445px;
+    width: 500px;
+    background-color: white;
+    padding: 50px;
+}
+
+button {
+    height: 3em;
+    border-radius: 30em;
+    font-size: 17px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,-6px -6px 12px #ffffff;
+}
+
+button:hover{
+    background: linear-gradient(60deg,rgb(1, 75, 1) 0%, rgb(37, 82, 37) 50%, rgb(76, 165, 76) 100%);
+}
+button:hover a{
+    color: white;
+}
+.botones a{
+    text-decoration: none;
+    color: black;
+}
+
+.datosHermano{
+    background-color: white;
+    width: 600px;
+    position: relative;
+    left: 445px;
+}
+
+.datosHermano h3{
+    background-color: rgb(76, 165, 76);
+    padding: 10px;
+    text-align: center;
+}
+
+.datos{
+    text-align: center;
+    padding: 10px;
+}
+
+
+.formContraseña{
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    left: 550px;
+}
+
+.formEditar{
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    left: 550px;
+}
+
+
+.volverAtras{
+    margin-left: 590px;
+    margin-top: 30px;
+}
+
+.volverAtras a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+

@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    display: flex;   
+}
+
+.fotogrande{
+    width: 1120px;
+    height: 716.5px;
+}
+
+.rotulo{
+    width: 400px;
+    margin-top: 40px;
+    margin-left: 11px;
+}
+
+.formulariohermano{
+    display: flex;
+    flex-direction: column;
+}
+
+.registroHermano{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    width: 250px;
+    position: relative;
+    left: 80px;
+    top: 50px;
+    
+}
+fieldset{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    color: rgb(96, 4, 96);
+    border-radius: 10px;
+}
+
+legend{
+    color: rgb(3, 49, 3);
+    font-weight: bold;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input{
+    width: 150px;
+    margin-left: 50px;
+    position: relative;
+    top: 50px;
+}
+
+input[type=submit]{
+    border-radius: 10px;
+}
+
+button{
+    position: relative;
+    top: 65px;
+    margin-left: 50px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: rgb(3, 49, 3);
+}
+
+button:hover{
+    background-color: rgb(96, 4, 96);
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.primerRegistro{
+    color: black;
+    position: relative;
+    top: 100px;
+    left: 90px;
+}
+
