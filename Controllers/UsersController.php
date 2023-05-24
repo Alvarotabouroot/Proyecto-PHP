@@ -30,9 +30,9 @@ class UsersController{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['data'])){
                 $data = $_POST['data'];
-                $data = json_encode($data);
                 $errores = SaneaValida::validaSaneaLogin($data);
                 if(empty($errores)){
+                    $data = json_encode($data);
                     $logueado = $this->apiUsers->login($data); //Devuelve true si se hace el login
                 }else{
                     $this->pages->render('users/login', ['errores' => $errores]);
