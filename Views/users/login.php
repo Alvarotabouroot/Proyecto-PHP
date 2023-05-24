@@ -14,7 +14,7 @@
             <form action="<?= $_ENV['BASE_URL'] ?>users/login" method="POST">
                 <fieldset>
                     <legend>ACCESO ADMIN</legend>
-                    <input type="text" name="data[email]" placeholder="Email">
+                    <input type="email" name="data[email]" placeholder="Email">
                     <br>
                     <input type="password" name="data[password]" placeholder="Contraseña">
                     <br>
