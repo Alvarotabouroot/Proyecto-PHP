@@ -39,7 +39,7 @@ class UsersController{
                 }
                 
                 //Estructura de control para el login
-                if($logueado){
+                if(isset($logueado)){
                     $this->home2(); //Carga la vista de las opciones del administrador
                 }else{
                     $this->pages->render('users/login'); //Sino se hace el login te vuelve a pedir el login

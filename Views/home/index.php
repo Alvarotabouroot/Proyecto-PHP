@@ -14,7 +14,7 @@
             <form action="<?= $_ENV['BASE_URL'] ?>hermano/login" method="POST">
                 <fieldset>
                     <legend>ACCESO AL SERVICIO</legend>
-                    <input type="text" name="data[email]" placeholder="Email">
+                    <input type="email" name="data[email]" placeholder="Email">
                     <br>
                     <input type="password" name="data[password]" placeholder="Contraseña">
                     <br>

@@ -11,26 +11,27 @@
     <section class="main">
         <article class="formulario">
             <img src="<?= $_ENV['BASE_URL']?>rotulo.png" alt="Imagen pagina principal" class="rotulo">
-            <form action="<?= $_ENV['BASE_URL'] ?>hermano/login" method="POST">
+            <form action="<?= $_ENV['BASE_URL'] ?>users/login" method="POST">
                 <fieldset>
-                    <legend>ACCESO AL SERVICIO</legend>
-                    <input type="text" name="data[email]" placeholder="Email">
+                    <legend>ACCESO ADMIN</legend>
+                    <input type="email" name="data[email]" placeholder="Email">
                     <br>
                     <input type="password" name="data[password]" placeholder="Contraseña">
                     <br>
                     <input type="submit" value="Loguearse">
-                    <button><a href="<?= $_ENV['BASE_URL']?>users/login">Acceso admin</a></button>
                 </fieldset>
             </form>
-            <?php if(isset($errores['email'])): ?>
-                <span class="errores"><?= $errores['email'] ?></span>
-            <?php endif; ?>
-            <?php if(isset($errores['password'])): ?>
-                <span class="errores"><?= $errores['password'] ?></span>
-            <?php endif; ?>
 
-            <a href="<?= $_ENV['BASE_URL']?>users/registrar" class="primerRegistro">[Primer registro administrador]</a>
+        <?php if(isset($errores['email'])): ?>
+            <span class="errores"><?= $errores['email'] ?></span>
+        <?php endif; ?>
+        <?php if(isset($errores['password'])): ?>
+            <span class="errores"><?= $errores['password'] ?></span>
+        <?php endif; ?>
+
+        <a href="<?= $_ENV['BASE_URL']?>users/registrar" class="primerRegistro">[Primer registro administrador]</a>
         </article>
+
         <article class="imagen">
             <img src="<?= $_ENV['BASE_URL']?>niño.jpg" alt="Imagen pagina principal" class="fotogrande">
         </article>
@@ -38,8 +39,3 @@
     
 </body>
 </html>
-
-
-
-
-
