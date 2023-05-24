@@ -53,3 +53,4 @@ CONSTRAINT pk_asistentesEventos PRIMARY KEY(id),
 CONSTRAINT fk_asistente_hermano FOREIGN KEY(hermano_id) REFERENCES hermanos(id),
 CONSTRAINT fk_asistentes_evento FOREIGN KEY(evento_id) REFERENCES eventos(id)
 )ENGINE=InnoDb DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
