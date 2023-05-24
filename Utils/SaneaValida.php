@@ -17,8 +17,8 @@ class SaneaValida{
 
             if (empty($password)){
                 $errores["password"] = 'El campo password es obligatorio.';
-            }elseif(filter_var(htmlspecialchars($password))){
-                $errores["password"] = "La contraseña no tiene un formato valido";
+            }elseif(strlen($password) < 9 or strlen($password) > 20){
+                $errores["password"] = "La contraseña tiene que estar entre 9 y 20 caracteres";
             }
                 
         }

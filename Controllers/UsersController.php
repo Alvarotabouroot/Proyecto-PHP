@@ -31,7 +31,13 @@ class UsersController{
             if(isset($_POST['data'])){
                 $data = $_POST['data'];
                 $data = json_encode($data);
-                $logueado = $this->apiUsers->login($data); //Devuelve true si se hace el login
+                $errores = SaneaValida::validaSaneaLogin($data);
+                if(empty($errores)){
+                    $logueado = $this->apiUsers->login($data); //Devuelve true si se hace el login
+                }else{
+                    $this->pages->render('users/login', ['errores' => $errores]);
+                }
+                
                 //Estructura de control para el login
                 if($logueado){
                     $this->home2(); //Carga la vista de las opciones del administrador

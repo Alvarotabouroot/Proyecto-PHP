@@ -22,6 +22,12 @@
                     <button><a href="<?= $_ENV['BASE_URL']?>users/login">Acceso admin</a></button>
                 </fieldset>
             </form>
+            <?php if(isset($errores['email'])): ?>
+                <span class="errores"><?= $errores['email'] ?></span>
+            <?php endif; ?>
+            <?php if(isset($errores['password'])): ?>
+                <span class="errores"><?= $errores['password'] ?></span>
+            <?php endif; ?>
         </article>
         <article class="imagen">
             <img src="<?= $_ENV['BASE_URL']?>niño.jpg" alt="Imagen pagina principal" class="fotogrande">

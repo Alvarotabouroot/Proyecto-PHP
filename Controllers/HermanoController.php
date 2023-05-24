@@ -31,11 +31,13 @@ class HermanoController{
                 if(empty($errores)){
                     $data = json_encode($data);
                     $hermano = $this->apiHermano->login($data);
+                }else{
+                    $this->pages->render('home/index', ['errores' => $errores]);
                 }
                 
                 //------------------------------------------------------------------------------------------
                 //Este fragmento de codigo se encarga de pasarle a la vista los datos del hermano
-                if($hermano){
+                if(isset($hermano)){
                     $this->pages->render('hermano/perfil', ['hermano' => $hermano]);
                 //------------------------------------------------------------------------------------------
                 //Este fragmento de codigo se produce cuando no se puede hacer el login del hermano y por tanto nos vuelve a sacar la vista de login

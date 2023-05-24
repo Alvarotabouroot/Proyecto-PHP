@@ -21,9 +21,16 @@
                     <input type="submit" value="Loguearse">
                 </fieldset>
             </form>
-
         <a href="<?= $_ENV['BASE_URL']?>users/registrar" class="primerRegistro">[Primer registro administrador]</a>
         </article>
+
+        <?php if(isset($errores['email'])): ?>
+            <span class="errores"><?= $errores['email'] ?></span>
+        <?php endif; ?>
+        <?php if(isset($errores['password'])): ?>
+            <span class="errores"><?= $errores['password'] ?></span>
+        <?php endif; ?>
+        
         <article class="imagen">
             <img src="<?= $_ENV['BASE_URL']?>niño.jpg" alt="Imagen pagina principal" class="fotogrande">
         </article>

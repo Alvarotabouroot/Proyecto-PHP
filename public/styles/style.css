@@ -85,7 +85,12 @@ a{
 .primerRegistro{
     color: black;
     position: relative;
-    top: 100px;
-    left: 90px;
+    top: 60px;
+    left: 85px;
 }
 
+.errores{
+    position: relative;
+    top: 100px;
+    left: 50px;
+}
