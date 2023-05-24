@@ -18,7 +18,8 @@
 
     //Cargar vista de opciones de administrador
     Router::add('GET', 'users/home', function(){ return (new UsersController())->home2();});
-
+    Router::add('POST', 'users/home', function(){ return (new UsersController())->home2();});
+    
     //Cerrar sesion administrador
     Router::add('GET', 'users/logout', function(){ return (new UsersController())->logout();});
 

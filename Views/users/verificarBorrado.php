@@ -8,10 +8,10 @@
 </head>
 <body>
     <h2>¿Está usted seguro de que desea dar de baja al hermano <?= $hermano->nombre.' '.$hermano->apellidos ?>?</h2>
-    <form action="<?= $_ENV['BASE_URL']?>users/borrarHermano/<?= $hermano->id ?>">
+    <form action="<?= $_ENV['BASE_URL'] ?>users/borrarHermano/<?= $hermano->id ?>" method="POST">
         <input type="submit" value="Estoy seguro">
     </form>
-    <form action="<?= $_ENV['BASE_URL']?>users/home">
+    <form action="<?= $_ENV['BASE_URL'] ?>users/home" method="POST">
         <input type="submit" value="Quiero volver atras">
     </form>
 </body>
