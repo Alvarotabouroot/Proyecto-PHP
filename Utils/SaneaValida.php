@@ -3,7 +3,7 @@
 namespace Utils;
 
 class SaneaValida{
-    public function validaSaneaLoginHermanos($data){
+    public function validaSaneaLogin($data){
         $errores = [];
         if(isset($data)){
             $email = $data['email'];
@@ -22,5 +22,6 @@ class SaneaValida{
             }
                 
         }
+        return $errores;
     }
 }

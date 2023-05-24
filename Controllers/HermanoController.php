@@ -12,14 +12,14 @@ class HermanoController{
     private ApiHermanoController $apiHermano;
     private ApiEventoController $apiEvento;
     private ApiAsistentesEventoController $apiAsistentesEvento;
-    private SaneaValida $filtros;
+    private SaneaValida $saneavalida;
     private Pages $pages;
 
     public function __construct(){
         $this->apiHermano = new ApiHermanoController();
         $this->apiEvento = new ApiEventoController();
         $this->apiAsistentesEvento = new ApiAsistentesEventoController();
-        $this->filtros = new SaneaValida();
+        $this->saneavalida = new SaneaValida();
         $this->pages = new Pages();
     }
 
@@ -29,9 +29,11 @@ class HermanoController{
             if(isset($_POST['data'])){
                 //Este fragmento de codigo se encarga de hacer el login con los datos obtenidos a traves del formulario
                 $data = $_POST['data'];
-                $this->filtros->validaSaneaLoginHermanos($data);
-                $data = json_encode($data);
-                $hermano = $this->apiHermano->login($data);
+                $errores = $this->saneavalida->validaSaneaLogin($data);
+                if(empty($errores)){
+                    $data = json_encode($data);
+                    $hermano = $this->apiHermano->login($data);
+                }
                 
                 //------------------------------------------------------------------------------------------
                 //Este fragmento de codigo se encarga de pasarle a la vista los datos del hermano

@@ -5,7 +5,8 @@
             "Tabou\\cofradia\\": "./",
             "Controllers\\":"./Controllers",
             "Models\\":"./Models",
-            "Lib\\":"./Lib"
+            "Lib\\":"./Lib",
+            "Utils\\":"./Utils"
         }
     },
     "authors": [
