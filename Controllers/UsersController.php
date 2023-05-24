@@ -119,6 +119,9 @@ class UsersController{
     }
 
     public function borrarHermano($id){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            
+        }
         //Este fragmento de codigo se encarga de buscar todos lso eventos donde estoy apuntado
         $eventos = $this->apiAsistentesEvento->misEventos($id);
         $eventos = json_decode($eventos); 
