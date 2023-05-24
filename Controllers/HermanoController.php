@@ -4,6 +4,7 @@ namespace Controllers;
 use Controllers\ApiEventoController;
 use Controllers\ApiHermanoController;
 use Controllers\ApiAsistentesEventoController;
+use Utils\SaneaValida;
 use Lib\Pages;
 
 
@@ -11,12 +12,14 @@ class HermanoController{
     private ApiHermanoController $apiHermano;
     private ApiEventoController $apiEvento;
     private ApiAsistentesEventoController $apiAsistentesEvento;
+    private SaneaValida $filtros;
     private Pages $pages;
 
     public function __construct(){
         $this->apiHermano = new ApiHermanoController();
         $this->apiEvento = new ApiEventoController();
         $this->apiAsistentesEvento = new ApiAsistentesEventoController();
+        $this->filtros = new SaneaValida();
         $this->pages = new Pages();
     }
 
@@ -26,6 +29,7 @@ class HermanoController{
             if(isset($_POST['data'])){
                 //Este fragmento de codigo se encarga de hacer el login con los datos obtenidos a traves del formulario
                 $data = $_POST['data'];
+                $this->filtros->validaSaneaLoginHermanos($data);
                 $data = json_encode($data);
                 $hermano = $this->apiHermano->login($data);
                 

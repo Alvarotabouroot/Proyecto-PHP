@@ -5,6 +5,7 @@ use Controllers\ApiUsersController;
 use Controllers\ApiHermanoController;
 use Controllers\ApiEventoController;
 use Controllers\ApiAsistentesEventoController;
+use Utils\SaneaValida;
 use Lib\Pages;
 
 class UsersController{
