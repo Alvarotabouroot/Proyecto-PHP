@@ -132,3 +132,12 @@ a{
     top: 40px;
     right: 70px;
 }
+
+.errores{
+    position: relative;
+    left: 330px;
+    bottom: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}

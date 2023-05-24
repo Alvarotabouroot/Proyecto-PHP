@@ -55,9 +55,15 @@ class UsersController{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['data'])){
                 $data = $_POST['data'];
-                $data = json_encode($data);
-                $this->apiUsers->registrar($data); 
-                $this->home2();
+                $errores = SaneaValida::saneavalidaRegistroAdmi($data);
+                if(empty($errores)){
+                    $data = json_encode($data);
+                    $this->apiUsers->registrar($data); 
+                    $this->home2();
+                }else{
+                    $this->pages->render('users/opciones', ['errores' => $errores]);
+                }
+                
             }
         }else{
             $this->pages->render('users/registrar');
@@ -78,10 +84,14 @@ class UsersController{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['data'])){
                 $data = $_POST['data'];
-                $data = json_encode($data);
-                $this->apiHermano->registrar($data); 
-                $this->home2();
-                
+                $errores = SaneaValida::saneavalidaRegistroHermanos($data);
+                if(empty($errores)){
+                    $data = json_encode($data);
+                    $this->apiHermano->registrar($data); 
+                    $this->home2();
+                }else{
+                    $this->pages->render('users/opciones', ['errores' => $errores]);
+                }
             }
         }
     }

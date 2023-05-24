@@ -42,7 +42,23 @@
             </form>
         </article>
     </section>
-    <br><br>
+    <br>
+    <section class="errores">
+        <?php if(isset($errores['email'])): ?>
+            <span class="errores"><?= $errores['email'] ?></span>
+        <?php endif; ?>
+        <?php if(isset($errores['nombre'])): ?>
+            <span class="errores"><?= $errores['nombre'] ?></span>
+        <?php endif; ?>
+        <?php if(isset($errores['apellidos'])): ?>
+            <span class="errores"><?= $errores['apellidos'] ?></span>
+        <?php endif; ?>
+        <?php if(isset($errores['password'])): ?>
+            <span class="errores"><?= $errores['password'] ?></span>
+        <?php endif; ?>
+    </section>
+    
+    <br>
     <section class="opciones">
         <li><a href="<?= $_ENV['BASE_URL']?>users/mostrarTodosHermanos">Mostrar listado hermanos</a></li>
         <form action="<?=$_ENV['BASE_URL']?>users/mostrarHermano" method="POST">
