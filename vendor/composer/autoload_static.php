@@ -13,6 +13,10 @@ class ComposerStaticInite72b698d961ff2d163a1f2f048739e18
     );
 
     public static $prefixLengthsPsr4 = array (
+        'U' => 
+        array (
+            'Utils\\' => 6,
+        ),
         'T' => 
         array (
             'Tabou\\cofradia\\' => 15,
@@ -54,6 +58,10 @@ class ComposerStaticInite72b698d961ff2d163a1f2f048739e18
     );
 
     public static $prefixDirsPsr4 = array (
+        'Utils\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Utils',
+        ),
         'Tabou\\cofradia\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',
