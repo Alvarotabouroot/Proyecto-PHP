@@ -120,33 +120,38 @@ class UsersController{
 
     public function borrarHermano($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            
-        }
-        //Este fragmento de codigo se encarga de buscar todos lso eventos donde estoy apuntado
-        $eventos = $this->apiAsistentesEvento->misEventos($id);
-        $eventos = json_decode($eventos); 
-        //------------------------------------------------------------------------------------
-        //Este fragmento de codigo se encarga de eliminar el registro en el evento
-        if($eventos){
-            foreach($eventos as $evento){
-                $eventoid = $evento->evento_id;
-                $eventoid = json_encode($eventoid);
-                $hermanoid = $evento->hermano_id;
-                $hermanoid = json_encode($hermanoid);
-                $this->apiAsistentesEvento->borrarLinea($hermanoid, $eventoid);
+            //Este fragmento de codigo se encarga de buscar todos los eventos donde estoy apuntado
+            $eventos = $this->apiAsistentesEvento->misEventos($id);
+            $eventos = json_decode($eventos); 
+            //------------------------------------------------------------------------------------
+            //Este fragmento de codigo se encarga de eliminar el registro en el evento
+            if($eventos){
+                foreach($eventos as $evento){
+                    $eventoid = $evento->evento_id;
+                    $eventoid = json_encode($eventoid);
+                    $hermanoid = $evento->hermano_id;
+                    $hermanoid = json_encode($hermanoid);
+                    $this->apiAsistentesEvento->borrarLinea($hermanoid, $eventoid);
+                }
             }
+            //-------------------------------------------------------------------------------------
+            //Este fragmento de codigo se encarga de actualizar el numero de participantes del evento
+            $numParticipantes = $this->apiAsistentesEvento->verNumParticipantes($eventoid);
+            $numParticipantes = json_encode($numParticipantes);
+            $this->apiEvento->actualizarNumParticipantes($numParticipantes, $eventoid);
+            //--------------------------------------------------------------------------------------
+            //Este fragmento de codigo se encarga de borrar al hermano
+            $id = json_encode($id);
+            $this->apiHermano->borrarHermano($id);
+            $this->home2();
+            //---------------------------------------------------------------------------------------
+        }else{
+            $id = json_decode($id);
+            $hermano = $this->apiHermano->buscarHermanoID($id);
+            $hermano = json_decode($hermano);
+            $this->pages->render('users/verificarBorrado', ['hermano'=>$hermano]);
         }
-        //-------------------------------------------------------------------------------------
-        //Este fragmento de codigo se encarga de actualizar el numero de participantes del evento
-        $numParticipantes = $this->apiAsistentesEvento->verNumParticipantes($eventoid);
-        $numParticipantes = json_encode($numParticipantes);
-        $this->apiEvento->actualizarNumParticipantes($numParticipantes, $eventoid);
-        //--------------------------------------------------------------------------------------
-        //Este fragmento de codigo se encarga de borrar al hermano
-        $id = json_encode($id);
-        $this->apiHermano->borrarHermano($id);
-        $this->home2();
-        //---------------------------------------------------------------------------------------
+        
     }
 
     /*------------------------- FUNCIONES DEL ADMINISTRADOR SOBRE LOS EVENTOS ----------------------------*/
